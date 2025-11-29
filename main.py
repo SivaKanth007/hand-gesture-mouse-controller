@@ -251,7 +251,7 @@ def gesture_processing_thread():
 
 def main():
     global running
-    print("Hand Gesture Controller Started. Press 'Esc' to exit.")
+    print("Hand Gesture Mouse Controller Started. Press 'Esc' to exit.")
     
     # Start processing thread
     t = threading.Thread(target=gesture_processing_thread)
@@ -262,7 +262,7 @@ def main():
     while True:
         with frame_lock:
             if current_frame is not None:
-                cv2.imshow('Hand Gesture Controller', current_frame)
+                cv2.imshow('Hand Gesture Mouse Controller', current_frame)
         
         # Wait for Esc key
         if cv2.waitKey(5) & 0xFF == 27:

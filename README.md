@@ -25,8 +25,8 @@ A Python-based AI application that allows you to control your mouse cursor using
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/SivaKanth007/hand-gesture-controller.git
-    cd hand-gesture-controller
+    git clone https://github.com/SivaKanth007/hand-gesture-mouse-controller.git
+    cd hand-gesture-mouse-controller
     ```
 
 2.  **Post-clone setup (virtual environment or system Python)**
