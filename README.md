@@ -95,9 +95,34 @@ You can tweak the sensitivity and behavior in `main.py`:
 
 ## 🔧 Troubleshooting
 
-*   **Cursor is jittery**: Try lowering the `smoothing_factor` or ensure your environment is well-lit.
-*   **Clicks are not registering**: Ensure your hand is facing the camera clearly. You may need to adjust the `click_start_threshold` if your hand is very far or very close to the camera.
-*   **Permissions**: Ensure your terminal/IDE has permission to access the webcam and control the mouse (especially on macOS).
+### Common Issues
+
+*   **"Camera not found" or Black Screen**:
+    *   Ensure your webcam is connected and not being used by another application (like Zoom or Teams).
+    *   If you have multiple cameras, you might need to change the camera index in `main.py`. Look for `cap = cv2.VideoCapture(0)` and change `0` to `1` or `2`.
+    *   Check if you have proper drivers installed for your webcam.
+
+*   **Cursor is jittery or unstable**:
+    *   **Lighting**: Ensure your hand is well-lit. Shadows can confuse the tracking.
+    *   **Background**: A busy background might interfere. Try a plain wall.
+    *   **Smoothing**: Increase the `smoothing_factor` in `main.py` (e.g., to `0.1`) for smoother but slower movement.
+
+*   **Clicks are not registering or getting stuck**:
+    *   **Hand Orientation**: Ensure your hand is facing the camera directly.
+    *   **Distance**: You may be too far or too close. Try moving your hand to a comfortable distance (approx. 0.5 - 1 meter).
+    *   **Thresholds**: Adjust `click_start_threshold` (default `0.05`) in `main.py` if you have larger or smaller hands.
+
+*   **Permission Errors (macOS/Linux)**:
+    *   If the mouse doesn't move, you likely need to grant "Accessibility" or "Input Monitoring" permissions to your Terminal or IDE in your System Preferences.
+
+*   **Installation Errors**:
+    *   If `pip install` fails, try upgrading pip: `pip install --upgrade pip`.
+    *   Ensure you are using Python 3.8 - 3.11 (MediaPipe sometimes has delays supporting the absolute newest Python versions).
+
+### Emergency Stop
+*   The application disables the default PyAutoGUI failsafe (slamming mouse to corner) to prevent accidental triggers during gestures.
+*   **To Exit**: Press the **`Esc`** key on your keyboard.
+*   **Force Quit**: If the app freezes, switch to the terminal window (Alt+Tab) and press `Ctrl+C`.
 
 ## 🤝 Contributing
 
